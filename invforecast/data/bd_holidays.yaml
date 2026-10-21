@@ -1,0 +1,49 @@
+# Bangladesh public holidays used as calendar features.
+#
+# Fixed-date holidays recur every year. Moveable (lunar) holidays depend on moon
+# sighting, so they are listed per year as approximations and should be adjusted
+# once the government gazette is published. Add your own shop closures under
+# `custom`.
+fixed:
+  - { month: 2, day: 21, name: "Shaheed Dibosh / International Mother Language Day" }
+  - { month: 3, day: 17, name: "Sheikh Mujibur Rahman's Birthday" }
+  - { month: 3, day: 26, name: "Independence Day" }
+  - { month: 4, day: 14, name: "Pohela Boishakh" }
+  - { month: 5, day: 1, name: "May Day" }
+  - { month: 8, day: 15, name: "National Mourning Day" }
+  - { month: 12, day: 16, name: "Victory Day" }
+  - { month: 12, day: 25, name: "Christmas Day" }
+
+moveable:
+  2024:
+    - { date: 2024-02-26, name: "Shab-e-Barat" }
+    - { date: 2024-04-10, name: "Eid-ul-Fitr", span: 3 }
+    - { date: 2024-05-23, name: "Buddha Purnima" }
+    - { date: 2024-06-16, name: "Eid-ul-Adha", span: 3 }
+    - { date: 2024-07-17, name: "Ashura" }
+    - { date: 2024-08-26, name: "Janmashtami" }
+    - { date: 2024-09-16, name: "Eid-e-Milad-un-Nabi" }
+    - { date: 2024-10-13, name: "Durga Puja (Bijoya Dashami)" }
+  2025:
+    - { date: 2025-02-15, name: "Shab-e-Barat" }
+    - { date: 2025-03-31, name: "Eid-ul-Fitr", span: 3 }
+    - { date: 2025-05-11, name: "Buddha Purnima" }
+    - { date: 2025-06-07, name: "Eid-ul-Adha", span: 3 }
+    - { date: 2025-07-06, name: "Ashura" }
+    - { date: 2025-08-16, name: "Janmashtami" }
+    - { date: 2025-09-05, name: "Eid-e-Milad-un-Nabi" }
+    - { date: 2025-10-02, name: "Durga Puja (Bijoya Dashami)" }
+  2026:
+    - { date: 2026-02-04, name: "Shab-e-Barat" }
+    - { date: 2026-03-20, name: "Eid-ul-Fitr", span: 3 }
+    - { date: 2026-05-01, name: "Buddha Purnima" }
+    - { date: 2026-05-27, name: "Eid-ul-Adha", span: 3 }
+    - { date: 2026-06-25, name: "Ashura" }
+    - { date: 2026-08-25, name: "Eid-e-Milad-un-Nabi" }
+    - { date: 2026-09-04, name: "Janmashtami" }
+    - { date: 2026-10-20, name: "Durga Puja (Bijoya Dashami)" }
+
+# Days before Eid when shopping demand ramps up (used for the `pre_eid` feature).
+eid_runup_days: 10
+
+custom: []
