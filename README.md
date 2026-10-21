@@ -8,6 +8,15 @@ Demand forecasting toolkit for small retailers: clean POS exports, build lag and
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+## Try it live
+
+| | |
+|---|---|
+| API reference | https://akibullah.github.io/inventory-forecasting/ — Swagger UI rendered from the exported `openapi.json` (static; the Codespace runs the real service) |
+| Run in your browser | [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/AkibUllah/inventory-forecasting?quickstart=1) — installs the package, trains the ensemble on the bundled sample and serves the API on port 8000 (`/docs`); the `invforecast` CLI is on the PATH in the terminal |
+| One-click deploy | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AkibUllah/inventory-forecasting) — the Dockerfile trains at build time and serves the API |
+| Local | `make install train api` or `docker build -t invforecast . && docker run -p 8000:8000 invforecast` (see Quick Start) |
+
 ## Why this exists
 
 Shops running the POS systems I have built in Dhaka all reorder the same way: look at the shelf, remember roughly what sold last week, call the supplier. That works until Eid week, a 1 May holiday or a promotion, and then they either run out of soybean oil or sit on a month of detergent. The data to do better is already in the sales table. This toolkit is the smallest useful pipeline on top of it: make the daily series regular (zero-sales days count), add the calendar effects that actually move demand here (Friday/Saturday weekend, salary days, Eid run-up), test models honestly with rolling backtests instead of one lucky split, and convert the forecast into the two numbers a shopkeeper needs: *when* to reorder and *how much*.

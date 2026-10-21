@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Forecasting API API reference</title>
+    <meta name="description" content="Demand forecasts and reorder recommendations for small retailers, served from a model trained on the bundled Bangladeshi grocery sample." />
+    <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #1f2933;
+        --muted: #52606d;
+        --border: #e4e7eb;
+        --accent: #0f766e;
+        --accent-text: #ffffff;
+        --note-bg: #f5f7fa;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      .hero { border-bottom: 1px solid var(--border); background: var(--note-bg); }
+      .hero-inner { max-width: 1460px; margin: 0 auto; padding: 24px 20px 18px; display: flex; flex-wrap: wrap; gap: 14px 32px; align-items: flex-start; justify-content: space-between; }
+      .hero h1 { margin: 0 0 4px; font-size: 1.45rem; letter-spacing: -0.01em; }
+      .hero p { margin: 0; color: var(--muted); max-width: 720px; line-height: 1.5; }
+      .links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+      .links a.btn {
+        display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 8px; text-decoration: none;
+        font-weight: 600; font-size: 0.9rem; border: 1px solid var(--border); color: var(--text); background: var(--bg);
+      }
+      .links a.btn.primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+      .links img { height: 32px; display: block; }
+      .notice { max-width: 1460px; margin: 0 auto; padding: 12px 20px 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+      .notice code { background: var(--note-bg); padding: 1px 5px; border-radius: 4px; }
+      #swagger-ui .topbar { display: none; }
+      @media (max-width: 480px) { .hero-inner { padding: 20px 16px 14px; } .notice { padding: 10px 16px 0; } }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1>Inventory Forecasting API</h1>
+          <p>Demand forecasts and reorder recommendations for small retailers, served from a model trained on the bundled Bangladeshi grocery sample.</p>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="https://github.com/AkibUllah/inventory-forecasting">View source on GitHub</a>
+          <a href="https://codespaces.new/AkibUllah/inventory-forecasting?quickstart=1" title="Open in GitHub Codespaces"><img src="https://github.com/codespaces/badge.svg" alt="Open in GitHub Codespaces" /></a>
+          <a href="https://render.com/deploy?repo=https://github.com/AkibUllah/inventory-forecasting" title="Deploy to Render"><img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" /></a>
+        </div>
+      </div>
+    </header>
+    <p class="notice">
+      This page is a static API reference generated from the application's OpenAPI document (<code>openapi.json</code>) on every push.
+      "Try it out" has no server behind it here; the Codespace runs the real service with demo data, and the Render blueprint deploys it.
+    </p>
+    <div id="swagger-ui"></div>
+    <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js" crossorigin></script>
+    <script>
+      window.addEventListener('load', function () {
+        window.ui = SwaggerUIBundle({
+          url: './openapi.json',
+          dom_id: '#swagger-ui',
+          deepLinking: true,
+          docExpansion: 'list',
+          defaultModelsExpandDepth: 0,
+          tryItOutEnabled: false,
+          presets: [SwaggerUIBundle.presets.apis],
+        });
+      });
+    </script>
+  </body>
+</html>

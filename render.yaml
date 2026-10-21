@@ -1,0 +1,19 @@
+# Render blueprint: the Dockerfile trains the ensemble on the bundled sample at build time,
+# so the API answers /v1/forecast and /v1/reorder as soon as the container is up.
+# https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: inventory-forecasting
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: INVFORECAST_MODEL_PATH
+        value: /app/models/model.joblib
+      - key: INVFORECAST_DEFAULT_HORIZON
+        value: "14"
