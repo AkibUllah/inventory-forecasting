@@ -1,3 +1,4 @@
+<!-- topics: python,forecasting,scikit-learn,pandas,time-series,retail,inventory-management,typer,fastapi -->
 # Inventory Forecasting
 
 Demand forecasting toolkit for small retailers: clean POS exports, build lag and calendar features (with a Bangladesh holiday and Eid run-up calendar), compare baseline and gradient-boosting models with rolling-origin backtests, and turn the forecast into safety stock, reorder points and order quantities. Ships as a Python package, a Typer CLI and an optional FastAPI endpoint.
