@@ -4,6 +4,8 @@
 Demand forecasting toolkit for small retailers: clean POS exports, build lag and calendar features (with a Bangladesh holiday and Eid run-up calendar), compare baseline and gradient-boosting models with rolling-origin backtests, and turn the forecast into safety stock, reorder points and order quantities. Ships as a Python package, a Typer CLI and an optional FastAPI endpoint.
 
 [![CI](https://github.com/AkibUllah/inventory-forecasting/actions/workflows/ci.yml/badge.svg)](https://github.com/AkibUllah/inventory-forecasting/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/AkibUllah/inventory-forecasting/actions/workflows/codeql.yml/badge.svg)](https://github.com/AkibUllah/inventory-forecasting/actions/workflows/codeql.yml)
+[![Release](https://img.shields.io/github/v/release/AkibUllah/inventory-forecasting)](https://github.com/AkibUllah/inventory-forecasting/releases)
 ![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.3%2B-F7931E)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -17,9 +19,19 @@ Demand forecasting toolkit for small retailers: clean POS exports, build lag and
 | One-click deploy | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/AkibUllah/inventory-forecasting) — the Dockerfile trains at build time and serves the API |
 | Local | `make install train api` or `docker build -t invforecast . && docker run -p 8000:8000 invforecast` (see Quick Start) |
 
+## Screenshots
+
+![Backtest and reorder plan](docs/images/backtest-reorder.png)
+
+*A local run on the bundled sample: rolling-origin backtest of all five models (6 splits, 14-day horizon, 4 skus), training the ensemble, and the reorder plan for a 7-day lead time at 95% service level.*
+
+![API reference](docs/images/api-reference.png)
+
+*The forecast and reorder endpoints in the [live API reference](https://akibullah.github.io/inventory-forecasting/).*
+
 ## Why this exists
 
-Shops running the POS systems I have built in Dhaka all reorder the same way: look at the shelf, remember roughly what sold last week, call the supplier. That works until Eid week, a 1 May holiday or a promotion, and then they either run out of soybean oil or sit on a month of detergent. The data to do better is already in the sales table. This toolkit is the smallest useful pipeline on top of it: make the daily series regular (zero-sales days count), add the calendar effects that actually move demand here (Friday/Saturday weekend, salary days, Eid run-up), test models honestly with rolling backtests instead of one lucky split, and convert the forecast into the two numbers a shopkeeper needs: *when* to reorder and *how much*.
+Small shops in Dhaka that I have built software for all reorder the same way: look at the shelf, remember roughly what sold last week, call the supplier. That works until Eid week, a 1 May holiday or a promotion, and then they either run out of soybean oil or sit on a month of detergent. The data to do better is already in the sales table. This toolkit is the smallest useful pipeline on top of it: make the daily series regular (zero-sales days count), add the calendar effects that actually move demand here (Friday/Saturday weekend, salary days, Eid run-up), test models honestly with rolling backtests instead of one lucky split, and convert the forecast into the two numbers a shopkeeper needs: *when* to reorder and *how much*.
 
 ## Features
 
@@ -135,7 +147,7 @@ sku                on hand   avg/day   safety stock   reorder point   order qty 
 DETERGENT-1KG            5       7.8           15.7            69.9          62   yes
 OIL-SOY-1L              40      27.8           35.6           230.1         124   yes
 RICE-MINI-5KG           60      18.9           24.9           157.0          97   yes
-TEA-ISPAHANI-400G      120       8.4           11.9            70.8           0   no
+TEA-BLACK-400G         120       8.4           11.9            70.8           0   no
 ```
 
 (`OIL-SOY-1L` has 50 units on order, which is why its order quantity is lower than the gap to the reorder point.)
@@ -201,11 +213,11 @@ Covered: cleaning (gap filling, duplicate summing, negative clipping, bad dates)
 
 ## Roadmap
 
-- Intermittent-demand models (Croston / TSB) for slow movers where Poisson noise dominates
-- Lead-time variability in the safety-stock formula and supplier minimum order quantities
-- Hierarchical reconciliation (sku -> category -> store) and multi-store support
-- Quantile forecasts (GBM with quantile loss) to drive service level directly
-- Scheduled retraining and forecast drift monitoring in the API
+- [ ] Intermittent-demand models (Croston / TSB) for slow movers where Poisson noise dominates (#1)
+- [ ] Lead-time variability in the safety-stock formula and supplier minimum order quantities (#2)
+- [ ] Hierarchical reconciliation (sku -> category -> store) and multi-store support (#3)
+- [ ] Quantile forecasts (GBM with quantile loss) to drive service level directly (#4)
+- [ ] Scheduled retraining and forecast drift monitoring in the API (#5)
 
 ## License
 

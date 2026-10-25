@@ -19,7 +19,7 @@ SKU_PROFILES = [
     # (sku, base daily units, trend per year, promo lift, price BDT)
     ("RICE-MINI-5KG", 18.0, 0.10, 1.6, 395.0),
     ("OIL-SOY-1L", 25.0, 0.05, 1.8, 175.0),
-    ("TEA-ISPAHANI-400G", 9.0, 0.00, 1.5, 240.0),
+    ("TEA-BLACK-400G", 9.0, 0.00, 1.5, 240.0),
     ("DETERGENT-1KG", 6.0, 0.15, 2.0, 150.0),
     ("MILK-POWDER-500G", 4.0, 0.20, 1.4, 420.0),
     ("SUGAR-1KG", 14.0, -0.05, 1.3, 140.0),
