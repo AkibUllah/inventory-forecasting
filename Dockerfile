@@ -1,5 +1,5 @@
 # Trains the ensemble on the bundled sample data at build time and serves the API.
-FROM python:3.10-slim
+FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 PIP_NO_CACHE_DIR=1
 WORKDIR /app
